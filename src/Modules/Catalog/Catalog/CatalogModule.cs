@@ -9,10 +9,15 @@ namespace Catalog
         public static IServiceCollection AddCatalogModule(this IServiceCollection services, IConfiguration configuration) 
         {
             // Add services to the container
-            //services
-            //    .AddApplicationServices()
-            //    .AddInfrastructureServices(configuration)
-            //    .AddApiServices(configuration);
+
+            // Api  Endpoint services
+
+            // Application Use Case services
+
+            // Data - Infrastructure services
+            var connectionString = configuration.GetConnectionString("Database");
+
+            services.AddDbContext<CatalogDbContext>(options => options.UseNpgsql(connectionString));
 
             return services;
         }
@@ -25,7 +30,18 @@ namespace Catalog
             //    .UseInfrastructureServices()
             //    .UseApiServices();
 
+            InitializeDatabaseAsync(app).GetAwaiter().GetResult();
+
             return app;
+        }
+
+        private static async Task InitializeDatabaseAsync(IApplicationBuilder app)
+        {
+            using var scope = app.ApplicationServices.CreateScope();
+
+            var context = scope.ServiceProvider.GetRequiredService<CatalogDbContext>();
+
+            await context.Database.MigrateAsync();
         }
     }
 }

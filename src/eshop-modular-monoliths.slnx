@@ -12,6 +12,9 @@
   <Folder Name="/Modules/Ordering/">
     <Project Path="Modules/Ordering/Ordering/Ordering.csproj" Id="545803a0-4bfc-4672-8e39-3762a3746fd4" />
   </Folder>
+  <Folder Name="/Modules/Tenancy/">
+    <Project Path="../Tenancy/Tenancy.csproj" Id="7e121fcb-704b-4fab-8988-cfdf29acff70" />
+  </Folder>
   <Folder Name="/Shared/">
     <Project Path="Shared/Shared/Shared.csproj" Id="2c9fe382-c286-46fc-a695-5515bc16848e" />
   </Folder>

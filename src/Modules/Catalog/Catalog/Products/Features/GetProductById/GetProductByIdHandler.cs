@@ -14,7 +14,7 @@
 
             if (product == null)
             {
-                throw new Exception($"Product not found: {query.Id}");
+                throw new ProductNotFoundException(query.Id);
             }
 
             // Mapping product entity to productdto

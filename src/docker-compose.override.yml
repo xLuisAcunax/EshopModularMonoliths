@@ -18,3 +18,7 @@ services:
     ports:
       - "5341:5341"
       - "9091:80"
+    volumes:
+      - seq_data:/data
+volumes:
+  seq_data:

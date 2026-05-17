@@ -4,8 +4,16 @@ builder.Host.UseSerilog((context, config) =>
     config.ReadFrom.Configuration(context.Configuration));
 
 // Add services to the container
-builder.Services.AddCarterWithAssemblies(typeof(CatalogModule).Assembly);
 
+// common services: carter, mediatr, fluentvalidation
+var catalogAssembly = typeof(CatalogModule).Assembly;
+var basketAssembly = typeof(BasketModule).Assembly;
+
+builder.Services.AddCarterWithAssemblies(catalogAssembly, basketAssembly);
+
+builder.Services.AddMediatRWithAssemblies(catalogAssembly, basketAssembly);
+
+// module services: catalog, basket, ordering, etc
 builder.Services
     .AddCatalogModule(builder.Configuration)
     .AddBasketModule(builder.Configuration)

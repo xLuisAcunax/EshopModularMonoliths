@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Basket.Data.Repository;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Shared.Data;
 using Shared.Data.Interceptors;
 
 namespace Basket
@@ -16,6 +15,7 @@ namespace Basket
             // Api  Endpoint services
 
             // Application Use Case services
+            services.AddScoped<IBasketRepository, BasketRepository>();
 
             // Data - Infrastructure services
             var connectionString = configuration.GetConnectionString("Database");
@@ -41,6 +41,7 @@ namespace Basket
             // Use Api  Endpoint services
 
             // Use Application Use Case services
+
 
             // Use Data - Infrastructure services
             app.UseMigration<BasketDbContext>();

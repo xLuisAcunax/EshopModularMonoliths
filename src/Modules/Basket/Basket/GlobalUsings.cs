@@ -8,3 +8,17 @@ global using FluentValidation;
 global using Shared.CQRS;
 global using Basket.Basket.Exceptions;
 global using Mapster;
+global using Carter;
+global using MediatR;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Routing;
+global using Microsoft.AspNetCore.Mvc;
+global using Basket.Data.Repository;
+
+
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Shared.Data;
+global using Shared.Data.Seed;
+global using Microsoft.Extensions.Logging;
+global using FluentValidation;

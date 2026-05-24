@@ -1,0 +1,9 @@
+﻿global using Shared.DDD;
+global using Ordering.Orders.ValueObjects;
+global using Ordering.Orders.Models;
+global using MediatR;
+global using Microsoft.Extensions.Logging;
+global using Ordering.Orders.Events;
+global using Microsoft.EntityFrameworkCore;
+global using System.Reflection;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
